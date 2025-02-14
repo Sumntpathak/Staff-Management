@@ -1,12 +1,11 @@
-services:
-  - type: web
-    name: staff-management
-    env: java
+git services:
+  - name: staff-management
+    type: web
+    runtime: docker
     plan: free
-    repo: https://github.com/Sumntpathak/Staff-Management
-    branch: main
-    buildCommand: ./mvnw clean package
-    startCommand: java -jar target/*.jar
+    repo: https://github.com/Sumntpathak/Staff-Management.git
+    dockerfilePath: Dockerfile
+
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: jdbc:h2:mem:testdb
